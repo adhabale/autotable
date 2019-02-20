@@ -1,0 +1,69 @@
+<!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="weight">
+    <th mat-header-cell *matHeaderCellDef> Weight </th>
+    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="symbol">
+    <th mat-header-cell *matHeaderCellDef> Symbol </th>
+    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<button (click)='Upload()'  mat-raised-button color="primary">add</button>
+<button (click)='add()'  mat-raised-button color="primary">+</button>
+<input type="file" (change)='change($event)'/> -->
+
+
+<div class=' col-md-6 table-container' [formGroup]='form'>
+<table mat-table [dataSource]="dataSource1" class="mat-elevation-z8 w-100" formArrayName='table' >
+
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <!-- <td mat-cell *matCellDef="let element"> {{element.name}} </td> -->
+        <td mat-cell *matCellDef="let element"> 
+          <input type='text' [value]='element.name' matInput/> 
+        </td>
+
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="nationality">
+    <th mat-header-cell *matHeaderCellDef> Nationality </th>
+    <!-- <td mat-cell *matCellDef="let element"> {{element.nationality}} </td> -->
+<td mat-cell *matCellDef="let element"> 
+    <mat-form-field class="input-control" > 
+        <mat-select placeholder="Nationality" [disableRipple]="true" [value]='element.nationality'>
+            <mat-option [value]='element.nationality' selected> {{element.nationality}} </mat-option>
+         </mat-select>
+          </mat-form-field>
+ </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns1;"></tr>
+</table>
+</div>
+<button (click)='addRow()'  mat-raised-button color="primary" class="margin-10">+</button>
+
+<input type="file" (change)='change($event)'/>
+<button (click)='Upload()'  mat-raised-button color="primary" class="margin-10">Upload</button>
+
+
